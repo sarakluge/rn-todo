@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, SafeAreaView, TouchableOpacity, TextInput, FlatList } from 'react-native'
+import Input from './components/Input'
 
 type Todo = {
   id: string,
@@ -23,8 +24,10 @@ const App: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+
+      <Input style={'inputLight'} placeholder={'placeholder...'} value={inputValue} onChangeText={text => setInputValue(text)} />
       
-      <TextInput onChangeText={text => setInputValue(text)} value={inputValue} style={styles.input} placeholder={'Skriv en ny todo...'} />
+      {/* <TextInput onChangeText={text => setInputValue(text)} value={inputValue} style={styles.input} placeholder={'Skriv en ny todo...'} /> */}
       <TouchableOpacity onPress={addTodoHandler}>
         <View style={styles.button}>
           <Text>Add Todo</Text> 
