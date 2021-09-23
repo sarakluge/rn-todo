@@ -6,6 +6,7 @@ type Todo = {
   text: string
 }
 
+
 const App: React.FC = () => {
   const [todoList, setTodoList] = useState<Todo[]>([{id: '123d', text: 'Hej Korre'}, {id: '123', text: 'Hej Sara'}])
   const [inputValue, setInputValue] = useState<string>('')
