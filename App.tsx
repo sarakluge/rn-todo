@@ -19,6 +19,7 @@ const App: React.FC = () => {
   const deleteTodoHandler = (id:string) => {
     setTodoList(prev => [...prev].filter( todo => todo.id !== id))
   }
+  //testar git 
 
   return (
     <SafeAreaView style={styles.container}>
