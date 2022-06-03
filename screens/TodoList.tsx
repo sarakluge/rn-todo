@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import { StyleSheet, SafeAreaView, FlatList } from 'react-native'
+import { StyleSheet, SafeAreaView, FlatList, View } from 'react-native'
 import { v4 as uuid_v4 } from "uuid";
-import Input from './components/Input'
-import  Button from "./components/Button";
-import  RowContainer from "./components/RowContainer";
-import ListItem from './components/ListItem';
-import BottomTabNavigator from "./navigation/BottomTabNavigator"
+import Input from '../components/Input'
+import  Button from "../components/Button";
+import  RowContainer from "../components/RowContainer";
+import ListItem from '../components/ListItem';
+import Header from '../components/Header';
+import StyledContainer from '../components/Container';
 
 
 
@@ -16,7 +17,7 @@ type Todo = {
 }
 
 
-const App: React.FC = () => {
+const TodoList: React.FC = () => {
 
   const darkPurple = "#7739db"
   const lightPurple = "#d3b8ff"
@@ -65,9 +66,9 @@ const App: React.FC = () => {
   }
 
   return (
-    <BottomTabNavigator></BottomTabNavigator>
-    /*<SafeAreaView style={styles.container}>
-      <RowContainer>
+    <SafeAreaView style={styles.container}>
+    <StyledContainer >
+    <RowContainer>
         <Input placeholder={'Write your todo here...'} value={inputValue} onChangeText={text => setInputValue(text)}></Input>
         <Button onPress={addTodoHandler} text={"Add todo"} bgColor={lightPurple} borderColor={darkPurple}></Button>
       </RowContainer>
@@ -76,7 +77,9 @@ const App: React.FC = () => {
         <Button onPress={() => filterHanlder("todo")} text={"Todo"} bgColor={lightPurple} borderColor={darkPurple}></Button>
         <Button onPress={() => filterHanlder("done")} text={"Done"} bgColor={lightPurple} borderColor={darkPurple}></Button>
       </RowContainer>
+    </StyledContainer>
       
+      <Header title={"Todos"}></Header>
       <FlatList style={{ width: '100%', marginHorizontal: 'auto'}}
        data={filterTodoList}
        renderItem={({item}) =>
@@ -87,13 +90,13 @@ const App: React.FC = () => {
           onCheck={() => onCheck(item.id)}></ListItem>
         }
       />
-    </SafeAreaView>*/
+    </SafeAreaView>
   ); 
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#333',
+    backgroundColor: '#e6e6e6',
     color: 'white',
     flex: 1,
     alignItems: 'center',
@@ -102,4 +105,4 @@ const styles = StyleSheet.create({
   
 });
 
-export default App
+export default TodoList;
